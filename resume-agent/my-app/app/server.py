@@ -27,6 +27,10 @@ async def upload_pdf(file: UploadFile = File(...)):
     json_output = resume_to_json(text)
     return {"filename": file.filename, "content_type": text, "json_output": json_output}
 
+@app.post("/parse_resume_text")
+async def parse_resume_text(text: str):
+    json_output = resume_to_json(text)
+    return json_output
 
 add_routes(
     app,

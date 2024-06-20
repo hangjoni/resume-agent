@@ -854,19 +854,6 @@ files = [
 referencing = ">=0.31.0"
 
 [[package]]
-name = "jwt"
-version = "1.3.1"
-description = "JSON Web Token library for Python 3."
-optional = false
-python-versions = ">= 3.6"
-files = [
-    {file = "jwt-1.3.1-py3-none-any.whl", hash = "sha256:61c9170f92e736b530655e75374681d4fcca9cfa8763ab42be57353b2b203494"},
-]
-
-[package.dependencies]
-cryptography = ">=3.1,<3.4.0 || >3.4.0"
-
-[[package]]
 name = "markdown-it-py"
 version = "3.0.0"
 description = "Python port of markdown-it. Markdown parsing, done right!"
@@ -1850,4 +1837,4 @@ watchmedo = ["PyYAML (>=3.10)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "564794367b9bae740902d19093de4e13544f80be46ba0549b6ce0d7fd3108172"
+content-hash = "a0d88b2f7132c6998b6c6d50d8a820c5d63970baf2b5c23b109af85fefd6b7b2"

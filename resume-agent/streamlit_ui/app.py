@@ -31,7 +31,7 @@ import streamlit as st
 from email_validator import EmailNotValidError, validate_email
 from firebase_admin import auth
 
-TITLE: Final = "Example app"
+TITLE: Final = "Resume Agent"
 
 POST_REQUEST_URL_BASE: Final = "https://identitytoolkit.googleapis.com/v1/accounts:"
 post_request = partial(
@@ -357,8 +357,9 @@ def login_form(
     are valid and the user's email address has been verified, the user is authenticated and a
     reauthentication cookie is created with the specified expiration date.
     """
-
+    print("INSIDE LOGIN FORM")
     if st.session_state["authentication_status"]:
+        print('Already authenticated?', st.session_state["authentication_status"])
         return None
     with st.form("Login"):
         email = st.text_input("E-mail")
@@ -367,13 +368,17 @@ def login_form(
         st.session_state["username"] = email
         password = st.text_input("Password", type="password")
         if not st.form_submit_button("Login"):
+            print("if not st.form_submit_button")
             return None
 
     # Authenticate the user with Firebase REST API
+    print('Before authenticate_user')
     login_response = authenticate_user(email, password)
     if not login_response:
+        print('No login_response')
         return None
     try:
+        print('In try block')
         decoded_token = auth.verify_id_token(login_response["idToken"])
         user = auth.get_user(decoded_token["uid"])
         if not user.email_verified:
@@ -388,8 +393,12 @@ def login_form(
             token_encode(exp_date),
             expires_at=exp_date,
         )
+        print('Cookie was set!', cookie_manager.get(cookie_name))
     except Exception as e:
+        print('In except block')
+        print('Error:', e)
         error(e)
+    print('Before end of login_form')
     return None
 
 
@@ -496,9 +505,8 @@ def not_logged_in(
 
 def app() -> None:
     """This is a part of a Streamlit app which is only visible if the user is logged in."""
-    st.subheader("Yay!!!")
-    st.write("You are logged in!")
-    st.write("Hello :sunglasses:")
+    st.sidebar.markdown("## User settings")
+    st.title("Resume Agent")
 
 
 def main() -> None:
@@ -508,14 +516,12 @@ def main() -> None:
     e-mail domain. The Firebase REST API and JWT cookies are used for authentication. If the user
     is not logged in, no content other than the login form gets shown.
     """
-    print(st.secrets["firebase_auth_token"])
 
     st.set_page_config(
         page_title=TITLE,
         layout="wide",
-        initial_sidebar_state="collapsed",
+        initial_sidebar_state="expanded",
     )
-    st.markdown("#Hello")
     # Hides 'Made with Streamlit'
     st.markdown(
         """
@@ -534,6 +540,9 @@ def main() -> None:
         firebase_admin.initialize_app(cred)
     pretty_title(TITLE)
     cookie_manager, cookie_name = stx.CookieManager(), "login_cookie"
+    
+    print('Before checking', cookie_manager.get(cookie_name), cookie_is_valid(cookie_manager, cookie_name))
+    
 
     if not cookie_is_valid(cookie_manager, cookie_name) and not_logged_in(
         cookie_manager, cookie_name, preauthorized=None#"gmail.com"
@@ -543,6 +552,8 @@ def main() -> None:
     with st.sidebar:
         login_panel(cookie_manager, cookie_name)
 
+    print('after logging in')
+    print('After logging in', cookie_manager.get(cookie_name), cookie_is_valid(cookie_manager, cookie_name))
     return app()
 
 
