@@ -81,10 +81,4 @@ else:
         
         st.write(response.json())
 
-        # # To convert to a string based IO:
-        # stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
-        # st.write(stringio)
-
-        # # To read file as string:
-        # string_data = stringio.read()
-        # st.write(string_data)
+    

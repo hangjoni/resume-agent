@@ -1,0 +1,71 @@
+{
+  "work_experiences": [
+    {
+      "company": "Dunamu Inc.",
+      "title": "DEVOPS ENGINEER",
+      "start_date": "Sep. 2023",
+      "description": "DevOps Engineer at fintech & blockchain company Dunamu which is known for operating Upbit, the largest cryptocurrency exchange in Korea."
+    },
+    {
+      "company": "Danggeun Pay Inc. (KarrotPay)",
+      "title": "FOUNDING MEMBER & SITE RELIABILITY ENGINEER & INFRASTRUCTURE TEAM LEAD",
+      "start_date": "Mar. 2021",
+      "end_date": "Jun. 2023",
+      "impacts": [
+        "Designed and provisioned the entire infrastructure on the AWS cloud to meet security compliance and acquire a business license for financial services in Korea.",
+        "Saved over 30% of the overall AWS costs by establishing a quarterly purchasing strategy for RI (Reserved Instance) and SP (Savings Plan) and by introducing Graviton instances.",
+        "Established a core architecture for regulating outbound DNS traffic in multi-account and multi-VPC environments utilizing AWS Route53 DNS Firewall and FMS."
+      ],
+      "description": "Led growth at infrastructure departments in two fintech companies as lead engineer and founding member."
+    },
+    {
+      "company": "Danggeun Market Inc.",
+      "title": "SITE RELIABILITY ENGINEER",
+      "start_date": "Feb. 2021",
+      "end_date": "Mar. 2021"
+    },
+    {
+      "company": "Kasa",
+      "title": "FOUNDING MEMBER & DIRECTOR OF INFRASTRUCTURE DIVISION",
+      "start_date": "Jun. 2018",
+      "end_date": "Jan. 2021",
+      "impacts": [
+        "Migrated the orchestration system from DC/OS to Kubernetes which is based on AWS EKS. Managed 3 Kubernetes clusters and 300+ pods.",
+        "Provisioned a monitoring system with Kafka, Telegraf, InfluxDB, Grafana. Collected metrics from hosts, containers, pods and more."
+      ],
+      "description": "Designed on-boarding process for new engineers, managed network configurations on AWS, and provisioned observability and monitoring systems."
+    },
+    {
+      "company": "Omnious. Co., Ltd.",
+      "title": "SOFTWARE ARCHITECT",
+      "start_date": "Jun. 2017",
+      "end_date": "May. 2018",
+      "impacts": [
+        "Provisioned an easily manageable hybrid infrastructure (Amazon AWS + On-premise) utilizing IaC tools like Ansible, Packer, and Terraform.",
+        "Built fully automated CI/CD pipelines on CircleCI for containerized applications using Docker, AWS ECR, and Rancher."
+      ],
+      "description": "Provisioned infrastructure and designed service architecture for Machine Learning based Fashion Tagging API SaaS product."
+    },
+    {
+      "company": "PLAT Corp.",
+      "title": "CO-FOUNDER & SOFTWARE ENGINEER",
+      "start_date": "Jan. 2016",
+      "end_date": "Jun. 2017",
+      "description": "Implemented RESTful API server for car rental booking application and built overall service infrastructure utilizing Docker container, CircleCI, and AWS stack."
+    },
+    {
+      "company": "R.O.K Cyber Command, MND",
+      "title": "SOFTWARE ENGINEER & SECURITY RESEARCHER (COMPULSORY MILITARY SERVICE)",
+      "start_date": "Aug. 2014",
+      "end_date": "Apr. 2016",
+      "description": "Lead engineer on agent-less backtracking system that can discover client device's fingerprint independently of the Proxy, VPN, and NAT."
+    },
+    {
+      "company": "ShitOne Corp.",
+      "title": "SOFTWARE ENGINEER",
+      "start_date": "Dec. 2011",
+      "end_date": "Feb. 2012",
+      "description": "Developed a proxy drive smartphone application and implemented overall Android application logic and API server for community service."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+\section*{Work Experience}
+
+\begin{itemize}
+{% for job in data.work_experiences %}
+    \item \textbf{Company}: {{ job.company }}
+    \item \textbf{Title}: {{ job.title }}
+    \item \textbf{Period}: {{ job.start_date }} {% if job.end_date is defined %} - {{ job.end_date }}{% else %} - Present{% endif %}
+    \item \textbf{Description}: {{ job.description }}
+    {% if job.impacts is defined %}
+    \item \textbf{Impacts}:
+    \begin{itemize}
+        {% for impact in job.impacts %}
+        \item {{ impact }}
+        {% endfor %}
+    \end{itemize}
+    {% endif %}
+{% endfor %}
+\end{itemize}
+
+\end{document}

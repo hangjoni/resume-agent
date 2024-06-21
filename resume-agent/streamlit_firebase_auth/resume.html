@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:400,300,700"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        height: 100%;
+      }
+
+      body {
+        min-height: 100%;
+        background: #eee;
+        font-family: "Lato", sans-serif;
+        font-weight: 400;
+        color: #222;
+        font-size: 14px;
+        line-height: 26px;
+        padding-bottom: 50px;
+      }
+
+      .container {
+        max-width: 700px;
+        background: #fff;
+        margin: 0px auto 0px;
+        box-shadow: 1px 1px 2px #dad7d7;
+        border-radius: 3px;
+        padding: 40px;
+        margin-top: 50px;
+      }
+
+      .header {
+        margin-bottom: 30px;
+
+        .full-name {
+          font-size: 40px;
+          text-transform: uppercase;
+          margin-bottom: 5px;
+        }
+
+        .first-name {
+          font-weight: 700;
+        }
+
+        .last-name {
+          font-weight: 300;
+        }
+
+        .contact-info {
+          margin-bottom: 20px;
+        }
+
+        .email,
+        .phone {
+          color: #999;
+          font-weight: 300;
+        }
+
+        .separator {
+          height: 10px;
+          display: inline-block;
+          border-left: 2px solid #999;
+          margin: 0px 10px;
+        }
+
+        .position {
+          font-weight: bold;
+          display: inline-block;
+          margin-right: 10px;
+          text-decoration: underline;
+        }
+      }
+
+      .details {
+        line-height: 20px;
+
+        .section {
+          margin-bottom: 40px;
+        }
+
+        .section:last-of-type {
+          margin-bottom: 0px;
+        }
+
+        .section__title {
+          letter-spacing: 2px;
+          color: #54afe4;
+          font-weight: bold;
+          margin-bottom: 10px;
+          text-transform: uppercase;
+        }
+
+        .section__list-item {
+          margin-bottom: 40px;
+        }
+
+        .section__list-item:last-of-type {
+          margin-bottom: 0;
+        }
+
+        .left,
+        .right {
+          vertical-align: top;
+          display: inline-block;
+        }
+
+        .left {
+          width: 60%;
+        }
+
+        .right {
+          tex-align: right;
+          width: 39%;
+        }
+
+        .name {
+          font-weight: bold;
+        }
+
+        a {
+          text-decoration: none;
+          color: #000;
+          font-style: italic;
+        }
+
+        a:hover {
+          text-decoration: underline;
+          color: #000;
+        }
+
+        .skills {
+        }
+
+        .skills__item {
+          margin-bottom: 10px;
+        }
+
+        .skills__item .right {
+          input {
+            display: none;
+          }
+
+          label {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background: #c3def3;
+            border-radius: 20px;
+            margin-right: 3px;
+          }
+
+          input:checked + label {
+            background: #79a9ce;
+          }
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <div class="full-name">
+          <span class="first-name"></span>
+          <span class="last-name"></span>
+        </div>
+        <div class="contact-info">
+          <span class="email">Email: </span>
+          <span class="email-val"></span>
+          <span class="separator"></span>
+          <span class="phone">Phone: </span>
+          <span class="phone-val"></span>
+        </div>
+
+        <div class="about">
+          <span class="position"></span>
+          <span class="desc">  </span>
+        </div>
+      </div>
+      <div class="details">
+        
+        <div class="section">
+          <div class="section__title">Experience</div>
+          <div class="section__list">
+            
+            <div class="section__list-item">
+              <div class="left">
+                <div class="name">Dunamu Inc.</div>
+                <div class="addr"></div>
+                <div class="duration">
+                  Sep. 2023 -  - Present
+                </div>
+              </div>
+              <div class="right">
+                <div class="name">DEVOPS ENGINEER</div>
+                <div class="desc">DevOps Engineer at fintech & blockchain company Dunamu which is known for operating Upbit, the largest cryptocurrency exchange in Korea.</div>
+              </div>
+            </div>
+            
+            <div class="section__list-item">
+              <div class="left">
+                <div class="name">Danggeun Pay Inc. (KarrotPay)</div>
+                <div class="addr"></div>
+                <div class="duration">
+                  Mar. 2021 -  - Jun. 2023
+                </div>
+              </div>
+              <div class="right">
+                <div class="name">FOUNDING MEMBER & SITE RELIABILITY ENGINEER & INFRASTRUCTURE TEAM LEAD</div>
+                <div class="desc">Led growth at infrastructure departments in two fintech companies as lead engineer and founding member.</div>
+              </div>
+            </div>
+            
+            <div class="section__list-item">
+              <div class="left">
+                <div class="name">Danggeun Market Inc.</div>
+                <div class="addr"></div>
+                <div class="duration">
+                  Feb. 2021 -  - Mar. 2021
+                </div>
+              </div>
+              <div class="right">
+                <div class="name">SITE RELIABILITY ENGINEER</div>
+                <div class="desc"></div>
+              </div>
+            </div>
+            
+            <div class="section__list-item">
+              <div class="left">
+                <div class="name">Kasa</div>
+                <div class="addr"></div>
+                <div class="duration">
+                  Jun. 2018 -  - Jan. 2021
+                </div>
+              </div>
+              <div class="right">
+                <div class="name">FOUNDING MEMBER & DIRECTOR OF INFRASTRUCTURE DIVISION</div>
+                <div class="desc">Designed on-boarding process for new engineers, managed network configurations on AWS, and provisioned observability and monitoring systems.</div>
+              </div>
+            </div>
+            
+            <div class="section__list-item">
+              <div class="left">
+                <div class="name">Omnious. Co., Ltd.</div>
+                <div class="addr"></div>
+                <div class="duration">
+                  Jun. 2017 -  - May. 2018
+                </div>
+              </div>
+              <div class="right">
+                <div class="name">SOFTWARE ARCHITECT</div>
+                <div class="desc">Provisioned infrastructure and designed service architecture for Machine Learning based Fashion Tagging API SaaS product.</div>
+              </div>
+            </div>
+            
+            <div class="section__list-item">
+              <div class="left">
+                <div class="name">PLAT Corp.</div>
+                <div class="addr"></div>
+                <div class="duration">
+                  Jan. 2016 -  - Jun. 2017
+                </div>
+              </div>
+              <div class="right">
+                <div class="name">CO-FOUNDER & SOFTWARE ENGINEER</div>
+                <div class="desc">Implemented RESTful API server for car rental booking application and built overall service infrastructure utilizing Docker container, CircleCI, and AWS stack.</div>
+              </div>
+            </div>
+            
+            <div class="section__list-item">
+              <div class="left">
+                <div class="name">R.O.K Cyber Command, MND</div>
+                <div class="addr"></div>
+                <div class="duration">
+                  Aug. 2014 -  - Apr. 2016
+                </div>
+              </div>
+              <div class="right">
+                <div class="name">SOFTWARE ENGINEER & SECURITY RESEARCHER (COMPULSORY MILITARY SERVICE)</div>
+                <div class="desc">Lead engineer on agent-less backtracking system that can discover client device's fingerprint independently of the Proxy, VPN, and NAT.</div>
+              </div>
+            </div>
+            
+            <div class="section__list-item">
+              <div class="left">
+                <div class="name">ShitOne Corp.</div>
+                <div class="addr"></div>
+                <div class="duration">
+                  Dec. 2011 -  - Feb. 2012
+                </div>
+              </div>
+              <div class="right">
+                <div class="name">SOFTWARE ENGINEER</div>
+                <div class="desc">Developed a proxy drive smartphone application and implemented overall Android application logic and API server for community service.</div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+          
+
+        <div class="section">
+          <div class="section__title">Interests</div>
+          <div class="section__list">
+            <div class="section__list-item"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
