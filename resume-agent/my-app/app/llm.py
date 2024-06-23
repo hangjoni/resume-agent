@@ -9,7 +9,8 @@ class WorkExperience(BaseModel):
     """Describe work experiences in a more concise and impactful manner. 
         Make sure the impact states clear quantifiable results and shows the skills and role of the candidate """
     company: str = Field(..., title="Company Name", description="Name of the company")
-    title: str = Field(..., title="Job Title", description="Job title")
+    location: Optional[str] = Field(None, title="Location", description="Location of the company")
+    job_title: str = Field(..., title="Job Title", description="Job title")
     start_date: str = Field(..., title="Start Date", description="Start date of the job")
     end_date: str = Field(None, title="End Date", description="End date of the job")
     description: Optional[str] = Field(None, title="Description", description="Description of the job responsibilities")
@@ -48,8 +49,8 @@ class Resume(BaseModel):
     last_name: str = Field(..., title="Last Name", description="Last name of the candidate")
     email: str = Field(..., title="Email", description="Email of the candidate")
     phone: Optional[str] = Field(..., title="Phone", description="Phone number of the candidate")
-    title: Optional[str] = Field(None, title="Title", description="Title of the candidate indicating the professional role or career profile of the candidate")
-    summary: Optional[str] = Field(None, title="Summary", description="Summary of the candidate's professional background")
+    resume_title: Optional[str] = Field(None, title="Resume Title", description="Title of the candidate indicating the professional role or career profile of the candidate")
+    resume_summary: Optional[str] = Field(None, title="Resume Summary", description="Summary of the candidate's professional background")
     work_experiences: List[WorkExperience] = Field(..., title="Work Experiences", description="List of work experiences")
     educations: Optional[List[Education]] = Field(None, title="Educations", description="List of educations")
     skills: Optional[List[Skill]] = Field(None, title="Skills", description="List of skills")
