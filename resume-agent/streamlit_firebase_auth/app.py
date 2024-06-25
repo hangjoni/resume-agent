@@ -3,6 +3,10 @@ import auth_functions
 from io import StringIO
 import pymupdf
 import requests
+from streamlit_pdf_viewer import pdf_viewer
+from jinja2 import Environment, FileSystemLoader
+import pdfkit
+import json
 
 ## -------------------------------------------------------------------------------------------------
 ## Not logged in -----------------------------------------------------------------------------------
@@ -63,22 +67,60 @@ else:
     uploaded_file = st.file_uploader("Upload your resume pdf", type="pdf")
     if uploaded_file is not None:
         content = uploaded_file.read()
+
+        # display pdf file as text
+        pdf_viewer(content)
+
+        # extract text from pdf
         pdf = pymupdf.open(stream=content, filetype="pdf")
         text = ""
         for page in pdf:
             text += page.get_text()
         pdf.close()
-            # display pdf file as text
-        st.write(text)
-
-        # make a request to the server
-        # add a spinner while waiting for response
+        
+        # send request to api to extract json data
         st.header("Server response:")
         with st.spinner('Waiting for server response...'):
             # make a post request using query text
-
             response = requests.post(st.secrets["SERVER_URL"]+ "/parse_resume_text", params={"text": text})
+            response_json = response.json()
+
+            # # mock up for testing
+            # response_json = json.loads(open('./data/my_resume_parsed.json').read())
+            # st.write(response_json)
+
+        # create the new resume using template
+        env = Environment(loader=FileSystemLoader('./templates'))
+        template = env.get_template('template2.html')
+        new_resume_html = template.render(data=response_json)
+
+        # convert html to pdf
+        config = pdfkit.configuration(wkhtmltopdf='/usr/bin/wkhtmltopdf')
+        options = {
+            'page-size': 'A4',
+            'margin-top': '0mm',
+            'margin-right': '0mm',
+            'margin-bottom': '0mm',
+            'margin-left': '0mm',
+            'encoding': "UTF-8",
+            'no-outline': None,
+            'no-images': True,
+            'disable-external-links': True,
+            'disable-javascript': True
+        }
+        new_resume_pdf = pdfkit.from_string(new_resume_html, False, options=options, configuration=config)
         
-        st.write(response.json())
+
+        # download button
+        st.download_button(
+            label="Download the updated resume",
+            data=new_resume_pdf,
+            file_name="updated_resume.pdf",
+            mime="text/pdf",
+        )
+
+        # display the updated resume
+        pdf_viewer(new_resume_pdf)
+
 
     

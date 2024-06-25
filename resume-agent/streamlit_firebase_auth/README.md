@@ -11,3 +11,13 @@ Simple boilerplate Streamlit app with Authentication using Firebase Web API:
 - No custom components (only Streamlit-native widgets)
 
 **Note:** Remember to add your Firebase project Web API key to the .streamlit/secrets.toml... **and keep it a secret!**
+
+# Docker
+
+## build image
+
+docker build -t streamlit_firebase_auth .
+
+## run image
+
+docker run -p 8501:8501 streamlit_firebase_auth

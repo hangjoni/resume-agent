@@ -176,11 +176,11 @@
           <span class="email-val">{{data.email}}</span>
           <span class="separator"></span>
           <span class="phone">Phone: </span>
-          <span class="phone-val">{{data.phone_number}}</span>
+          <span class="phone-val">{{data.phone}}</span>
         </div>
 
         <div class="about">
-          <span class="position">{{data.career_profile}}</span>
+          <span class="position">{{data.resume_title}}</span>
           <span class="desc"> {{data.resume_summary}} </span>
         </div>
       </div>
@@ -195,12 +195,12 @@
                 <div class="name">{{job.company}}</div>
                 <div class="addr">{{job.location}}</div>
                 <div class="duration">
-                  {{job.start_date}} - {% if job.end_date is defined %} - {{
-                  job.end_date }}{% else %} - Present{% endif %}
+                  {{job.start_date}} - {% if job.end_date is defined %} {{
+                  job.end_date }}{% else %} Present{% endif %}
                 </div>
               </div>
               <div class="right">
-                <div class="name">{{job.title}}</div>
+                <div class="name">{{job.job_title}}</div>
                 <div class="desc">{{job.description}}</div>
               </div>
             </div>

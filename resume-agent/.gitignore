@@ -1,2 +1,4 @@
 **/secrets.toml
 **/.env
+**/data
+**/outputs

@@ -12,6 +12,7 @@ extra-streamlit-components = "^0.1.71"
 firebase-admin = "^6.5.0"
 email-validator = "^2.1.2"
 pyjwt = "^2.8.0"
+streamlit-pdf-viewer = "^0.0.14"
 
 
 [build-system]
