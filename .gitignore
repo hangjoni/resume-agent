@@ -1,0 +1,7 @@
+**/secrets.toml
+**/.env
+**/data
+**/outputs
+**/.private
+*my_resume*
+**/__pycache__

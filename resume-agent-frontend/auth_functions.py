@@ -12,6 +12,7 @@ def sign_in_with_email_and_password(email, password):
     data = json.dumps({"email": email, "password": password, "returnSecureToken": True})
     request_object = requests.post(request_ref, headers=headers, data=data)
     raise_detailed_error(request_object)
+    # print('This is the sign in token', request_object.json())
     return request_object.json()
 
 def get_account_info(id_token):
@@ -68,6 +69,7 @@ def sign_in(email:str, password:str) -> None:
     try:
         # Attempt to sign in with email and password
         id_token = sign_in_with_email_and_password(email,password)['idToken']
+        print('This is the id token', id_token)
 
         # Get account information
         user_info = get_account_info(id_token)["users"][0]
@@ -80,6 +82,7 @@ def sign_in(email:str, password:str) -> None:
         # Save user info to session state and rerun
         else:
             st.session_state.user_info = user_info
+            st.session_state.id_token = id_token
             st.experimental_rerun()
 
     except requests.exceptions.HTTPError as error:

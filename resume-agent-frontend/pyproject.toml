@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "resume-agent-frontend"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+streamlit = "1.36.0"
+requests = "^2.32.3"
+streamlit-pdf-viewer = "0.0.14"
+pymupdf = "1.24.5"
+pdfkit = "1.0.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
