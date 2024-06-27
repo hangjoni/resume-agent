@@ -16,7 +16,9 @@ localhost:8000/docs
 
 ## To deploy
 
-gcloud run deploy resume-agent --source . --port 8080 --allow-unauthenticated --region us-central1 --set-env-vars=OPENAI_API_KEY=YOUR_KEY_HERE
+gcloud run deploy resume-agent --source . --port 8080 --allow-unauthenticated --region us-central1 --set-env-vars=OPENAI_API_KEY=$OPENAI_API_KEY,LANGCHAIN_API_KEY=$LANGCHAIN_API_KEY_RESUME_AGENT
+
+Make sure the keys are available in your environment where this command is run, alternatively you can pass the key to the command directly when spinning up cloud run
 
 ## Next step:
 

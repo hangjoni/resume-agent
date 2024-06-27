@@ -24,7 +24,8 @@ async def get_current_user(credentials: HTTPAuthorizationCredentials = Security(
         decoded_token = auth.verify_id_token(token)
         return decoded_token
     except Exception as e:
-        raise HTTPException(status_code=403, detail="Invalid authentication credentials")
+        print(e)
+        raise HTTPException(status_code=403, detail=f"Invalid authentication credentials: {str(e)}")
     
 app = FastAPI(
     title="LangChain Server",
@@ -33,15 +34,7 @@ app = FastAPI(
     dependencies=[Depends(get_current_user)]
 )
 
-# one public route for testing
-def no_auth_dependency():
-    return True
-
-@app.get("/test", dependencies=[Depends(no_auth_dependency)])
-async def test():
-    return "Test successful!"
-
-# all other routes require authentication
+# all routes require authentication
 @app.get("/authtest")
 async def test():
     return "Authentication check successful!"

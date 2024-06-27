@@ -69,12 +69,13 @@ def resume_to_json(resume_text: str) -> str:
     ])
 
     model = ChatOpenAI()
-    model_with_work = model.bind(
+
+    model_with_funcs = model.bind(
         functions=[work_parsing_function],
         function_call={"name": "Resume"}
     )
 
-    chain = prompt | model_with_work | JsonOutputFunctionsParser(key_name="resume")
+    chain = prompt | model_with_funcs | JsonOutputFunctionsParser(key_name="resume")
 
     output = chain.invoke({"input": resume_text})
 
