@@ -9,7 +9,11 @@ Key features:
 - Jinja2 template was used to generate new formatted resume
 - Easily extensible. Simply add a new Jinja2 template to create a new template or look for the generated resume
 
-Tech stack:
+# Demo
+
+![](https://github.com/hangjoni/resume-agent/demo.gif)
+
+# Tech stack:
 
 - Front end: Streamlit
 - Back end:
@@ -56,7 +60,7 @@ To run the image and make it available in localhost:8501
 
 ## Deploy the front end app to Cloud Run
 
-`gcloud run deploy resume-agent-frontend --source . --port 8501 --allow-unauthenticated --region us-central1`
+`cd resume-agent-frontend && gcloud run deploy resume-agent-frontend --source . --port 8501 --allow-unauthenticated --region us-central1`
 
 # Backend
 
@@ -97,4 +101,11 @@ docker run \
 
 `gcloud run deploy resume-agent --source . --port 8080 --allow-unauthenticated --region us-central1 --set-env-vars=OPENAI_API_KEY=$OPENAI_API_KEY,LANGCHAIN_API_KEY=$LANGCHAIN_API_KEY_RESUME_AGENT`
 
-Make sure the keys are available in your environment where this command is run, alternatively you can pass the key to the command directly when spinning up cloud run
+Make sure the keys are available in your environment where this command is run, alternatively you can pass the key to the command directly when spinning up cloud run.
+
+The above method might require your profile to have cloudbuild.editor IAM access . An alternative:
+
+```
+gcloud builds submit --tag gcr.io/your-gcloud-project-id/resume-agent-frontend --project=resume-agent-42690
+gcloud run deploy --image gcr.io/your-gcloud-project-id/resume-agent-frontend --platform managed --project=resume-agent-426904 --allow-unauthenticated
+```
