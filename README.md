@@ -11,7 +11,7 @@ Key features:
 
 # Demo
 
-![](https://github.com/hangjoni/resume-agent/demo.gif)
+![](demo.gif)
 
 # Tech stack:
 
